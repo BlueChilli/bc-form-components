@@ -5,6 +5,7 @@ import SelectField from "../SelectField/SelectField";
 import formValidationSchema from "../../FormValidationSchema";
 import CheckboxField from "../Checkbox/Checkbox";
 import DateInputField from "../DatePickerInput/DateInputField";
+import RadioButton from "../RadioButton/RadioButton";
 
 /**
  * Form Validation Schema
@@ -21,6 +22,9 @@ const formValidationSchema = Yup.object().shape({
     repeatPassword: Yup.string()
         .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required("Repeat password is required"),
+
+    // validation for checkboxes
+    acceptTermsConditions: Yup.boolean().oneOf([true], "Please accept terms and conditions"),
 
     accountIntention: Yup.object({
         value: Yup.string().required("Required"),
@@ -43,7 +47,8 @@ const FormComponent = props => {
                 repeatPassword: "",
                 accountIntention: "justLooking",
                 acceptTermsConditions: false,
-                desiredDate: ""
+                desiredDate: "",
+                gender: "f"
             }}
             onSubmit={(values, bag) => {
                 console.log("what the heck", values);
@@ -84,6 +89,15 @@ const FormComponent = props => {
                             name="acceptTermsConditions"
                             label="Please accept terms and conditions"
                             value={false}
+                        />
+
+                        <RadioButton
+                            name="gender"
+                            options={[
+                                { label: "Male", value: "m" },
+                                { label: "Female", value: "f" }
+                            ]}
+                            value={formValues.values.gender}
                         />
 
                         <DateInputField
