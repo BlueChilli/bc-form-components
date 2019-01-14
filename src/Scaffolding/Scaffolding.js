@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, ErrorMessage, getIn } from "formik";
-import "./scaffolding.scss";
 import Show from "../Show/Show";
+import "./Scaffolding.scss";
 
 const DivWithCSSClass = ({ cssClass, className = "", children }) => {
     return <div className={cssClass + " " + className}>{children}</div>;

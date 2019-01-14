@@ -1,52 +1,29 @@
 import React from "react";
-import { Field, Formik } from "formik";
-import PropTypes from "prop-types";
 import {
     ElementWrap,
     LabelWrap,
     HelperText,
     ErrorContainer,
     InputWrap
-} from "../../utils/Scaffolding";
+} from "../../Scaffolding/Scaffolding";
+import { Field } from "formik";
 
-const TextField = ({
-    name,
-    label,
-    defaultValue = "",
-    helperText = "",
-    className = "",
-    ...rest
-}) => {
+const TextField = props => {
+    const { label, name, value, helperText = "", className = "", ...rest } = props;
     return (
-        <Formik>
-            <ElementWrap className={className} name={name}>
-                {label && (
-                    <LabelWrap name={name}>
-                        <label htmlFor={name}>{label}</label>
-                        <HelperText text={helperText} />
-                    </LabelWrap>
-                )}
-                <InputWrap name={name}>
-                    <Field
-                        id={name}
-                        name={name}
-                        defaultValue={defaultValue}
-                        autoComplete="nope"
-                        {...rest}
-                    />
-                </InputWrap>
-                <ErrorContainer name={name} />
-            </ElementWrap>
-        </Formik>
+        <ElementWrap className={className}>
+            {label && (
+                <LabelWrap>
+                    <label htmlFor={name}>{label}</label>
+                    <HelperText text={helperText} />
+                </LabelWrap>
+            )}
+            <InputWrap>
+                <Field id={name} name={name} defaultValue={value} {...rest} />
+            </InputWrap>
+            <ErrorContainer name={name} />
+        </ElementWrap>
     );
-};
-
-TextField.propTypes = {
-    label: PropTypes.string,
-    name: PropTypes.string,
-    defaultValue: PropTypes.string,
-    helperText: PropTypes.string,
-    className: PropTypes.string
 };
 
 export default TextField;
