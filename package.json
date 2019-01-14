@@ -4,9 +4,11 @@
     "private": true,
     "dependencies": {
         "formik": "^1.4.2",
+        "moment": "^2.23.0",
         "node-sass": "^4.11.0",
         "prop-types": "^15.6.2",
         "react": "^16.8.0-alpha.0",
+        "react-day-picker": "^7.2.4",
         "react-dom": "^16.8.0-alpha.0",
         "react-pose": "^4.0.5",
         "react-scripts": "2.1.3",

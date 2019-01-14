@@ -17,7 +17,7 @@ const formValidationSchema = Yup.object().shape({
 
     // lastName: Yup.string().required("Last name is required"),
 
-    // acceptTermsConditions: Yup.string().required("You must accept terms and conditions"),
+    // acceptTermsConditions: true,
 
     accountIntention: Yup.object({
         value: Yup.string().required("Required"),

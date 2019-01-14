@@ -3,6 +3,8 @@ import { Form, Formik } from "formik";
 import TextField from "../TextField/TextField";
 import SelectField from "../SelectField/SelectField";
 import formValidationSchema from "../../FormValidationSchema";
+import CheckboxField from "../Checkbox/Checkbox";
+import DateInputField from "../DatePickerInput/DateInputField";
 
 /**
  * Form Validation Schema
@@ -40,7 +42,8 @@ const FormComponent = props => {
                 password: "",
                 repeatPassword: "",
                 accountIntention: "justLooking",
-                acceptTermsConditions: true
+                acceptTermsConditions: false,
+                desiredDate: ""
             }}
             onSubmit={(values, bag) => {
                 console.log("what the heck", values);
@@ -74,6 +77,18 @@ const FormComponent = props => {
                                     label: "I am just looking"
                                 }
                             ]}
+                            {...formValues}
+                        />
+
+                        <CheckboxField
+                            name="acceptTermsConditions"
+                            label="Please accept terms and conditions"
+                            value={false}
+                        />
+
+                        <DateInputField
+                            name="desiredDate"
+                            label="The desired date for whatever it is"
                             {...formValues}
                         />
 
