@@ -11,13 +11,9 @@ const formValidationSchema = Yup.object().shape({
         .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required("Repeat password is required"),
 
-    // role: Yup.string().required("Role is required"),
-
-    // firstName: Yup.string().required("First name is required"),
-
-    // lastName: Yup.string().required("Last name is required"),
-
     acceptTermsConditions: Yup.boolean().oneOf([true], "Please accept terms and conditions"),
+
+    gender: Yup.string().required("Please select one of the gender"),
 
     accountIntention: Yup.object({
         value: Yup.string().required("Required"),

@@ -48,7 +48,7 @@ const FormComponent = props => {
                 accountIntention: "justLooking",
                 acceptTermsConditions: false,
                 desiredDate: "",
-                gender: "f"
+                gender: ""
             }}
             onSubmit={(values, bag) => {
                 console.log("what the heck", values);
@@ -97,7 +97,7 @@ const FormComponent = props => {
                                 { label: "Male", value: "m" },
                                 { label: "Female", value: "f" }
                             ]}
-                            value={formValues.values.gender}
+                            initialValue={formValues.values.gender}
                         />
 
                         <DateInputField
