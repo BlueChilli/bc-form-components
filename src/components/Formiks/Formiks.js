@@ -10,7 +10,7 @@ import RadioButton from "../RadioButton/RadioButton";
 /**
  * Form Validation Schema
 ```js
-const Yup = require("yup");
+import * as Yup from "yup";
 
 const formValidationSchema = Yup.object().shape({
     email: Yup.string()
@@ -23,8 +23,10 @@ const formValidationSchema = Yup.object().shape({
         .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required("Repeat password is required"),
 
-    // validation for checkboxes
+    // checkbox validation hack
     acceptTermsConditions: Yup.boolean().oneOf([true], "Please accept terms and conditions"),
+
+    gender: Yup.string().required("Please select one of the gender"),
 
     accountIntention: Yup.object({
         value: Yup.string().required("Required"),
@@ -34,6 +36,7 @@ const formValidationSchema = Yup.object().shape({
         .nullable()
 });
 
+export default formValidationSchema;
 ```
  */
 

@@ -76,6 +76,21 @@ $cream: rgba(238, 231, 227, 0.5);
             height: 128px;
             min-height: 128px;
         }
+
+        div.checkbox {
+            padding: 8px 0px;
+
+            input.checkbox,
+            label {
+                display: inline;
+            }
+
+            input.checkbox {
+                margin-right: 8px;
+                width: auto;
+                height: 16.5px;
+            }
+        }
     }
 
     .error {
