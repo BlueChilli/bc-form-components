@@ -4,9 +4,8 @@ import TextField from "../TextField/TextField";
 import SelectField from "../SelectField/SelectField";
 import formValidationSchema from "../../FormValidationSchema";
 import CheckboxField from "../Checkbox/Checkbox";
-import DateInputField from "../DatePickerInput/DateInputField";
+import DateInputField from "../DateInputField/DateInputField";
 import RadioButton from "../RadioButton/RadioButton";
-
 /**
  * Form Validation Schema
 ```js
@@ -68,6 +67,7 @@ const FormComponent = props => {
                         />
                         <TextField label="Password" name="password" type="password" />
                         <TextField label="Repeat Password" name="repeatPassword" type="password" />
+
                         <SelectField
                             name="accountIntention"
                             label="Which of the following applies to you?"

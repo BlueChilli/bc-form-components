@@ -30,7 +30,7 @@ const Debug = () => (
       {({ validationSchema, validate, onSubmit, ...rest }) => (
         <pre
           style={{
-            fontSize: '.65rem',
+            fontSize: '1.3rem',
             padding: '.25rem .5rem',
             overflowX: 'scroll',
           }}

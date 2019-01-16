@@ -12,7 +12,6 @@ import {
   InputWrap
 } from "../../Scaffolding/Scaffolding";
 
-import "./date-input-field.scss";
 import "react-day-picker/lib/style.css";
 
 export function DateInputField({
@@ -20,6 +19,7 @@ export function DateInputField({
   name,
   helperText = "",
   className = "",
+  placeholder = "",
   value,
   formik
 }) {
@@ -46,7 +46,7 @@ export function DateInputField({
           onDayPickerHide={() => setFieldTouched(name, true)}
           value={fieldValue}
           name={name}
-          placeholder={`${formatDate(new Date())}`}
+          placeholder={placeholder}
         />
       </InputWrap>
       <ErrorContainer name={name} />
@@ -61,7 +61,9 @@ DateInputField.propTypes = {
   name: propTypes.string.isRequired,
   helperText: propTypes.string.isRequired,
   setFieldTouched: propTypes.func,
-  setFieldValue: propTypes.func
+  placeholder: propTypes.string,
+  setFieldValue: propTypes.func,
+  formik: propTypes.object,
 };
 
 export default connect(DateInputField);

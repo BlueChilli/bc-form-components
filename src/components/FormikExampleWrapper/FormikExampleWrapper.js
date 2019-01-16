@@ -3,10 +3,19 @@ import { Formik, Form } from "formik";
 
 import Debug from "../Debug/Debug";
 
-const FormikExampleWrapper = ({ initialValues, children }) => {
+const FormikExampleWrapper = ({
+  initialValues,
+  validationSchema,
+  children
+}) => {
   return (
+    <div>
+      <pre>
+        {JSON.stringify(initialValues, null, 2)}
+      </pre>
       <Formik
         initialValues={initialValues}
+        validationSchema={validationSchema}
         onSubmit={values => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
@@ -19,7 +28,8 @@ const FormikExampleWrapper = ({ initialValues, children }) => {
           </Form>
         )}
       />
+    </div>
   );
-}
+};
 
 export default FormikExampleWrapper;
