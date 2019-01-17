@@ -3,10 +3,10 @@
 ### sample yup schema
 
 ```jsx static
-...
 Yup.date().required("__enter error message to be displayed__"),
-...
 ```
+
+## Simple example
 
 ```jsx
 const FormikExampleWrapper  = require("../FormikExampleWrapper/FormikExampleWrapper").default;
@@ -21,10 +21,10 @@ const dateInputFieldValidationSchema = Yup.object().shape({
     initialValues={{ test: "" }}
   >
   <DateInputField
-    label="test"
+    label="label test"
     placeholder="pick a day..."
     name="test"
-    helperText="test"
+    helperText="helper test"
   />
 </FormikExampleWrapper>
 ```

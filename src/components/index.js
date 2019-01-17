@@ -1,6 +1,9 @@
-// import DateInputField from "../components/DateInputField/DateInputField";
+import DateInputField from "../components/DateInputField/DateInputField";
+import TextareaField from "../components/TextareaField/TextareaField";
+import CheckboxField from "../components/CheckboxField/CheckboxField";
 
 module.exports = {
-  DateInputField: require("../components/DateInputField/DateInputField").default,
-  TextField: require("../components/TextField/TextField").default
+  DateInputField,
+  TextareaField,
+  CheckboxField
 }

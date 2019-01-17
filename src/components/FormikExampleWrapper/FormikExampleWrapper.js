@@ -9,10 +9,6 @@ const FormikExampleWrapper = ({
   children
 }) => {
   return (
-    <div>
-      <pre>
-        {JSON.stringify(initialValues, null, 2)}
-      </pre>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -28,7 +24,6 @@ const FormikExampleWrapper = ({
           </Form>
         )}
       />
-    </div>
   );
 };
 

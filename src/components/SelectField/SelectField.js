@@ -1,5 +1,7 @@
 import React from "react";
 import Select from "react-select";
+import { connect } from "formik";
+
 import {
     ElementWrap,
     LabelWrap,
@@ -59,17 +61,17 @@ export default function SelectField({
 ```
  */
 
-export default function SelectField({
+function SelectField({
     label,
     name,
     helperText = "",
     className = "",
     placeholder = "Select...",
     options = [],
-    ...rest
+    formik
 }) {
-    const { setFieldTouched, setFieldValue } = rest;
-    const value = rest.values[name];
+    const { setFieldTouched, setFieldValue } = formik;
+    const value = formik.values[name];
 
     return (
         <ElementWrap className={className}>
@@ -95,3 +97,5 @@ export default function SelectField({
         </ElementWrap>
     );
 }
+
+export default connect(SelectField);
