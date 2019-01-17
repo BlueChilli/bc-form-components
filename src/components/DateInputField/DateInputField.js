@@ -54,7 +54,7 @@ function DateInputFieldRaw({
   );
 }
 
-DateInputField.propTypes = {
+DateInputFieldRaw.propTypes = {
   /** Will populate the label field */
   label: propTypes.string,
   className: propTypes.string,
