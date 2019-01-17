@@ -361,9 +361,11 @@ function CheckboxField(props) {
   }));
 }
 
-module.exports = {
+var index = {
   DateInputField: DateInputField$1,
   TextareaField: TextareaField$1,
   CheckboxField: CheckboxField
 };
+
+export default index;
 //# sourceMappingURL=index.es.js.map
