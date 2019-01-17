@@ -1,6 +1,6 @@
 import React from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
-import { formatDate, parseDate } from "react-day-picker/moment";
+import dayPickerMomentHelpers from "react-day-picker/moment";
 import { connect } from "formik";
 import propTypes from "prop-types";
 
@@ -40,8 +40,8 @@ export function DateInputField({
       </LabelWrap>
       <InputWrap name={name}>
         <DayPickerInput
-          formatDate={formatDate}
-          parseDate={parseDate}
+          formatDate={dayPickerMomentHelpers.formatDate}
+          parseDate={dayPickerMomentHelpers.parseDate}
           onDayChange={value => setFieldValue(name, value)}
           onDayPickerHide={() => setFieldTouched(name, true)}
           value={fieldValue}
