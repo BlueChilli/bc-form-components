@@ -368,4 +368,5 @@ var index = {
 };
 
 export default index;
+export { DateInputField };
 //# sourceMappingURL=index.es.js.map
