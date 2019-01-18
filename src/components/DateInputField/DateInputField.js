@@ -1,7 +1,7 @@
 import React from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import dayPickerMomentHelpers from "react-day-picker/moment";
-import { connect } from "formik";
+import { connect, getIn } from "formik";
 import propTypes from "prop-types";
 
 import {
@@ -22,7 +22,8 @@ function DateInputField({
   placeholder = "",
   formik
 }) {
-  const {setFieldTouched, setFieldValue, values} = formik;
+  const {setFieldTouched, setFieldValue} = formik;
+  const value = getIn(formik.values, name);
 
   return (
     <ElementWrap className={className}>
@@ -36,7 +37,7 @@ function DateInputField({
           parseDate={dayPickerMomentHelpers.parseDate}
           onDayChange={value => setFieldValue(name, value)}
           onDayPickerHide={() => setFieldTouched(name, true)}
-          value={values[name]}
+          value={value}
           name={name}
           placeholder={placeholder}
         />

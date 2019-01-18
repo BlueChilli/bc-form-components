@@ -1,5 +1,12 @@
-import React, { createElement, Component, Children, PureComponent, createContext, forwardRef, cloneElement } from 'react';
-import propTypes from 'prop-types';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var React = require('react');
+var React__default = _interopDefault(React);
+var propTypes = _interopDefault(require('prop-types'));
 
 var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -111,7 +118,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -179,7 +186,7 @@ var Caption = function (_Component) {
   }]);
 
   return Caption;
-}(React.Component);
+}(React__default.Component);
 
 Caption.defaultProps = {
   localeUtils: _LocaleUtils2.default
@@ -251,7 +258,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -381,7 +388,7 @@ var Navbar = function (_Component) {
   }]);
 
   return Navbar;
-}(React.Component);
+}(React__default.Component);
 
 Navbar.defaultProps = {
   classNames: _classNames2.default,
@@ -426,7 +433,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -497,7 +504,7 @@ var Weekdays = function (_Component) {
   }]);
 
   return Weekdays;
-}(React.Component);
+}(React__default.Component);
 
 exports.default = Weekdays;
 Weekdays.propTypes = process.env.NODE_ENV !== "production" ? {
@@ -977,7 +984,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -1120,7 +1127,7 @@ var Day = function (_Component) {
   }]);
 
   return Day;
-}(React.Component);
+}(React__default.Component);
 
 Day.defaultProps = {
   tabIndex: -1
@@ -1259,7 +1266,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -1451,7 +1458,7 @@ var Month = function (_Component) {
   }]);
 
   return Month;
-}(React.Component);
+}(React__default.Component);
 
 exports.default = Month;
 Month.propTypes = process.env.NODE_ENV !== "production" ? {
@@ -1514,7 +1521,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -1579,7 +1586,7 @@ var Weekday = function (_Component) {
   }]);
 
   return Weekday;
-}(React.Component);
+}(React__default.Component);
 
 exports.default = Weekday;
 Weekday.propTypes = process.env.NODE_ENV !== "production" ? {
@@ -1609,7 +1616,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -2110,7 +2117,7 @@ var DayPicker = exports.DayPicker = function (_Component) {
   }]);
 
   return DayPicker;
-}(React.Component);
+}(React__default.Component);
 
 DayPicker.VERSION = '7.2.4';
 DayPicker.defaultProps = {
@@ -2211,9 +2218,9 @@ DayPicker.propTypes = process.env.NODE_ENV !== "production" ? {
   // Custom elements
   renderDay: _propTypes2.default.func,
   renderWeek: _propTypes2.default.func,
-  weekdayElement: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func, _propTypes2.default.instanceOf(React.Component)]),
-  navbarElement: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func, _propTypes2.default.instanceOf(React.Component)]),
-  captionElement: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func, _propTypes2.default.instanceOf(React.Component)]),
+  weekdayElement: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func, _propTypes2.default.instanceOf(React__default.Component)]),
+  navbarElement: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func, _propTypes2.default.instanceOf(React__default.Component)]),
+  captionElement: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func, _propTypes2.default.instanceOf(React__default.Component)]),
 
   // Events
   onBlur: _propTypes2.default.func,
@@ -2269,7 +2276,7 @@ exports.defaultParse = defaultParse;
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -7773,7 +7780,7 @@ exports.__esModule = true;
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -7888,7 +7895,7 @@ function createReactContext(defaultValue, calculateChangedBits) {
     };
 
     return Provider;
-  }(React.Component);
+  }(React__default.Component);
 
   Provider.childContextTypes = (_Provider$childContex = {}, _Provider$childContex[contextProp] = _propTypes2.default.object.isRequired, _Provider$childContex);
 
@@ -7950,7 +7957,7 @@ function createReactContext(defaultValue, calculateChangedBits) {
     };
 
     return Consumer;
-  }(React.Component);
+  }(React__default.Component);
 
   Consumer.contextTypes = (_Consumer$contextType = {}, _Consumer$contextType[contextProp] = _propTypes2.default.object, _Consumer$contextType);
 
@@ -7973,7 +7980,7 @@ exports.__esModule = true;
 
 
 
-var _react2 = _interopRequireDefault(React);
+var _react2 = _interopRequireDefault(React__default);
 
 
 
@@ -7985,7 +7992,7 @@ exports.default = _react2.default.createContext || _implementation2.default;
 module.exports = exports['default'];
 });
 
-var createContext$1 = unwrapExports(lib);
+var createContext = unwrapExports(lib);
 
 /**
  * Removes all key-value entries from the list cache.
@@ -10717,12 +10724,12 @@ function warning$1(condition, message) {
 var _a;
 var FormikProvider = (_a =
 /*#__PURE__*/
-createContext$1({}), _a.Provider),
+createContext({}), _a.Provider),
     FormikConsumer = _a.Consumer;
 function connect(Comp) {
   var C = function (props) {
-    return createElement(FormikConsumer, null, function (formik) {
-      return createElement(Comp, __assign({}, props, {
+    return React.createElement(FormikConsumer, null, function (formik) {
+      return React.createElement(Comp, __assign({}, props, {
         formik: formik
       }));
     });
@@ -10827,7 +10834,7 @@ var isNaN$1 = function (obj) {
   return obj !== obj;
 };
 var isEmptyChildren = function (children) {
-  return Children.count(children) === 0;
+  return React.Children.count(children) === 0;
 };
 var isPromise = function (value) {
   return isObject$1(value) && isFunction$1(value.then);
@@ -11380,9 +11387,9 @@ function (_super) {
         children = _a.children;
     var props = this.getFormikBag();
     var ctx = this.getFormikContext();
-    return createElement(FormikProvider, {
+    return React.createElement(FormikProvider, {
       value: ctx
-    }, component ? createElement(component, props) : render ? render(props) : children ? isFunction$1(children) ? children(props) : !isEmptyChildren(children) ? Children.only(children) : null : null);
+    }, component ? React.createElement(component, props) : render ? render(props) : children ? isFunction$1(children) ? children(props) : !isEmptyChildren(children) ? React.Children.only(children) : null : null);
   };
 
   Formik.defaultProps = {
@@ -11392,7 +11399,7 @@ function (_super) {
     enableReinitialize: false
   };
   return Formik;
-}(Component);
+}(React.Component);
 
 function warnAboutMissingIdentifier(_a) {
   var htmlContent = _a.htmlContent,
@@ -11532,20 +11539,20 @@ function (_super) {
       var innerRef = props.innerRef,
           rest = __rest(props, ["innerRef"]);
 
-      return createElement(component, __assign({
+      return React.createElement(component, __assign({
         ref: innerRef
       }, field, rest, {
         children: children
       }));
     }
 
-    return createElement(component, __assign({}, bag, props, {
+    return React.createElement(component, __assign({}, bag, props, {
       children: children
     }));
   };
 
   return FieldInner;
-}(Component);
+}(React.Component);
 
 var Field =
 /*#__PURE__*/
@@ -11559,7 +11566,7 @@ connect(function (_a) {
       handleSubmit = _b.handleSubmit,
       props = __rest(_a, ["formik"]);
 
-  return createElement("form", __assign({
+  return React.createElement("form", __assign({
     onReset: handleReset,
     onSubmit: handleSubmit
   }, props));
@@ -11785,14 +11792,14 @@ function (_super) {
       name: name
     });
 
-    return component ? createElement(component, props) : render ? render(props) : children ? typeof children === 'function' ? children(props) : !isEmptyChildren(children) ? Children.only(children) : null : null;
+    return component ? React.createElement(component, props) : render ? render(props) : children ? typeof children === 'function' ? children(props) : !isEmptyChildren(children) ? React.Children.only(children) : null : null;
   };
 
   FieldArrayInner.defaultProps = {
     validateOnChange: true
   };
   return FieldArrayInner;
-}(Component);
+}(React.Component);
 
 var FieldArray =
 /*#__PURE__*/
@@ -11882,20 +11889,20 @@ function (_super) {
       var innerRef = props.innerRef,
           rest = __rest(props, ["innerRef"]);
 
-      return createElement(component, __assign({
+      return React.createElement(component, __assign({
         ref: innerRef
       }, field, rest, {
         children: children
       }));
     }
 
-    return createElement(component, __assign({}, bag, props, {
+    return React.createElement(component, __assign({}, bag, props, {
       children: children
     }));
   };
 
   return FastFieldInner;
-}(Component);
+}(React.Component);
 
 var FastField =
 /*#__PURE__*/
@@ -11929,11 +11936,11 @@ function (_super) {
 
     var touch = getIn(formik.touched, name);
     var error = getIn(formik.errors, name);
-    return !!touch && !!error ? render ? isFunction$1(render) ? render(error) : null : children ? isFunction$1(children) ? children(error) : null : component ? createElement(component, rest, error) : error : null;
+    return !!touch && !!error ? render ? isFunction$1(render) ? render(error) : null : children ? isFunction$1(children) ? children(error) : null : component ? React.createElement(component, rest, error) : error : null;
   };
 
   return ErrorMessageImpl;
-}(Component);
+}(React.Component);
 
 var ErrorMessage =
 /*#__PURE__*/
@@ -15796,7 +15803,7 @@ var pickAssign = function (shouldPick, sources) {
     }, {});
 };
 
-var _a$2 = createContext({}), PoseParentConsumer = _a$2.Consumer, PoseParentProvider = _a$2.Provider;
+var _a$2 = React.createContext({}), PoseParentConsumer = _a$2.Consumer, PoseParentProvider = _a$2.Provider;
 var calcPopFromFlowStyle = function (el) {
     var offsetTop = el.offsetTop, offsetLeft = el.offsetLeft, offsetWidth = el.offsetWidth, offsetHeight = el.offsetHeight;
     return {
@@ -15965,13 +15972,13 @@ var PoseElement = (function (_super) {
     };
     PoseElement.prototype.render = function () {
         var elementType = this.props.elementType;
-        return (React.createElement(PoseParentProvider, { value: this.childrenHandlers }, createElement(elementType, pickAssign(this.shouldForwardProp, [
+        return (React__default.createElement(PoseParentProvider, { value: this.childrenHandlers }, React.createElement(elementType, pickAssign(this.shouldForwardProp, [
             this.getSetProps(),
             { ref: this.setRef }
         ]))));
     };
     return PoseElement;
-}(PureComponent));
+}(React.PureComponent));
 
 var supportedElements = [
     'a',
@@ -16068,10 +16075,10 @@ var componentCache = new Map();
 var createComponentFactory = function (key) {
     var componentFactory = function (poseConfig) {
         if (poseConfig === void 0) { poseConfig = {}; }
-        return forwardRef(function (_a, ref) {
+        return React.forwardRef(function (_a, ref) {
             var _b = _a.withParent, withParent = _b === void 0 ? true : _b, props = __rest(_a, ["withParent"]);
             warning$2(props.innerRef === undefined, 'innerRef is deprecated. Please use ref instead.');
-            return !withParent || props.parentValues ? (React.createElement(PoseElement, __assign({ poseConfig: poseConfig, innerRef: ref, elementType: key }, props))) : (React.createElement(PoseParentConsumer, null, function (parentCtx) { return (React.createElement(PoseElement, __assign({ poseConfig: poseConfig, elementType: key, innerRef: ref }, props, parentCtx))); }));
+            return !withParent || props.parentValues ? (React__default.createElement(PoseElement, __assign({ poseConfig: poseConfig, innerRef: ref, elementType: key }, props))) : (React__default.createElement(PoseParentConsumer, null, function (parentCtx) { return (React__default.createElement(PoseElement, __assign({ poseConfig: poseConfig, elementType: key, innerRef: ref }, props, parentCtx))); }));
         });
     };
     componentCache.set(key, componentFactory);
@@ -16096,7 +16103,7 @@ var getKey = function (child) {
     return childKey.replace('.$', '');
 };
 var prependProps = function (element, props) {
-    return createElement(element.type, __assign({ key: element.key, ref: element.ref }, props, element.props));
+    return React.createElement(element.type, __assign({ key: element.key, ref: element.ref }, props, element.props));
 };
 var handleTransition = function (_a, _b) {
     var displayedChildren = _b.displayedChildren, finishedLeaving = _b.finishedLeaving, hasInitialized = _b.hasInitialized, indexedChildren = _b.indexedChildren, scheduleChildRemoval = _b.scheduleChildRemoval;
@@ -16146,14 +16153,14 @@ var handleTransition = function (_a, _b) {
         else {
             newChildProps._pose = enterPose;
         }
-        var newChild = cloneElement(child, newChildProps);
+        var newChild = React.cloneElement(child, newChildProps);
         indexedChildren[child.key] = newChild;
         nextState.displayedChildren.push(hasPropsForChildren ? prependProps(newChild, propsForChildren) : newChild);
     });
     leaving.forEach(function (key) {
         var child = indexedChildren[key];
         var newChild = newlyLeaving[key]
-            ? cloneElement(child, {
+            ? React.cloneElement(child, {
                 _pose: exitPose,
                 onPoseComplete: function (pose) {
                     scheduleChildRemoval(key);
@@ -16177,7 +16184,7 @@ var handleChildrenTransitions = (function (props, state) {
 });
 var makeChildList = function (children) {
     var list = [];
-    Children.forEach(children, function (child) { return child && list.push(child); });
+    React.Children.forEach(children, function (child) { return child && list.push(child); });
     return list;
 };
 
@@ -16226,7 +16233,7 @@ var Transition = (function (_super) {
     };
     Transition.getDerivedStateFromProps = handleChildrenTransitions;
     return Transition;
-}(Component));
+}(React.Component));
 
 var PoseGroup = (function (_super) {
     __extends(PoseGroup, _super);
@@ -16234,13 +16241,13 @@ var PoseGroup = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     PoseGroup.prototype.render = function () {
-        return createElement(Transition, __assign({}, this.props));
+        return React.createElement(Transition, __assign({}, this.props));
     };
     PoseGroup.defaultProps = {
         flipMove: true
     };
     return PoseGroup;
-}(Component));
+}(React.Component));
 
 var fadeInOut = {
   enter: {
@@ -16311,10 +16318,10 @@ var Show = function Show(_ref) {
       rest = _objectWithoutProperties(_ref, ["show", "anim", "animateOnMount", "flipMove", "children"]);
 
   var WrapAnim = WrapAnimCreator(getAnimStashFunction(anim));
-  return React.createElement(PoseGroup, _extends({
+  return React__default.createElement(PoseGroup, _extends({
     flipMove: flipMove,
     animateOnMount: animateOnMount
-  }, rest), show && React.createElement(WrapAnim, {
+  }, rest), show && React__default.createElement(WrapAnim, {
     key: "one",
     animateOnMount: true
   }, children));
@@ -16355,7 +16362,7 @@ var DivWithCSSClass = function DivWithCSSClass(_ref) {
       _ref$className = _ref.className,
       className = _ref$className === void 0 ? "" : _ref$className,
       children = _ref.children;
-  return React.createElement("div", {
+  return React__default.createElement("div", {
     className: cssClass + " " + className
   }, children);
 };
@@ -16364,7 +16371,7 @@ var ElementWrap = function ElementWrap(_ref2) {
   var _ref2$className = _ref2.className,
       className = _ref2$className === void 0 ? "" : _ref2$className,
       children = _ref2.children;
-  return React.createElement(DivWithCSSClass, {
+  return React__default.createElement(DivWithCSSClass, {
     cssClass: "form-element",
     className: className
   }, children);
@@ -16373,7 +16380,7 @@ var LabelWrap = function LabelWrap(_ref3) {
   var _ref3$className = _ref3.className,
       className = _ref3$className === void 0 ? "" : _ref3$className,
       children = _ref3.children;
-  return React.createElement(DivWithCSSClass, {
+  return React__default.createElement(DivWithCSSClass, {
     cssClass: "form-element-label",
     className: className
   }, children);
@@ -16382,7 +16389,7 @@ var HelperText = function HelperText(_ref4) {
   var text = _ref4.text,
       _ref4$className = _ref4.className,
       className = _ref4$className === void 0 ? "" : _ref4$className;
-  return React.createElement(DivWithCSSClass, {
+  return React__default.createElement(DivWithCSSClass, {
     cssClass: "form-element-helpertext",
     className: className
   }, text);
@@ -16397,7 +16404,7 @@ var InputWrap = connect(function (_ref5) {
   var error = getIn(formik.errors, name);
   var touched = getIn(formik.touched, name);
   var errorClass = error && touched ? "error" : "";
-  return React.createElement(DivWithCSSClass, {
+  return React__default.createElement(DivWithCSSClass, {
     cssClass: "form-element-input ".concat(errorClass),
     className: className
   }, children);
@@ -16406,12 +16413,12 @@ var InputWrap = connect(function (_ref5) {
 var ErrorContainer = function ErrorContainer(_ref6) {
   var className = _ref6.className,
       name = _ref6.name;
-  return React.createElement(ErrorMessage, {
+  return React__default.createElement(ErrorMessage, {
     name: name,
     render: function render(msg) {
-      return React.createElement(Show, {
+      return React__default.createElement(Show, {
         animateOnMount: true
-      }, React.createElement("span", {
+      }, React__default.createElement("span", {
         className: "form-element-error"
       }, msg));
     }
@@ -16432,19 +16439,19 @@ function DateInputField(_ref) {
       placeholder = _ref$placeholder === void 0 ? "" : _ref$placeholder,
       formik = _ref.formik;
   var setFieldTouched = formik.setFieldTouched,
-      setFieldValue = formik.setFieldValue,
-      values = formik.values;
-  return React.createElement(ElementWrap, {
+      setFieldValue = formik.setFieldValue;
+  var value = getIn(formik.values, name);
+  return React__default.createElement(ElementWrap, {
     className: className
-  }, React.createElement(LabelWrap, {
+  }, React__default.createElement(LabelWrap, {
     name: name
-  }, React.createElement("label", {
+  }, React__default.createElement("label", {
     htmlFor: name
-  }, label || name), React.createElement(HelperText, {
+  }, label || name), React__default.createElement(HelperText, {
     text: helperText
-  })), React.createElement(InputWrap, {
+  })), React__default.createElement(InputWrap, {
     name: name
-  }, React.createElement(DayPickerInput_1$1, {
+  }, React__default.createElement(DayPickerInput_1$1, {
     formatDate: moment$1.formatDate,
     parseDate: moment$1.parseDate,
     onDayChange: function onDayChange(value) {
@@ -16453,10 +16460,10 @@ function DateInputField(_ref) {
     onDayPickerHide: function onDayPickerHide() {
       return setFieldTouched(name, true);
     },
-    value: values[name],
+    value: value,
     name: name,
     placeholder: placeholder
-  })), React.createElement(ErrorContainer, {
+  })), React__default.createElement(ErrorContainer, {
     name: name
   }));
 }
@@ -16476,5 +16483,5 @@ var DateInputField$1 = connect(DateInputField);
 
 // import DateInputField from "../components/DateInputField/DateInputField";
 
-export default DateInputField$1;
+exports.default = DateInputField$1;
 //# sourceMappingURL=index.js.map
