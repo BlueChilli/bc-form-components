@@ -38,13 +38,12 @@ export const InputWrap = connect(({ className = "", name = "", children, formik 
     );
 });
 
-//  {children}</div>
 export const ErrorContainer = ({ className, name }) => (
     <ErrorMessage
         name={name}
         render={msg => (
             <Show animateOnMount={true}>
-                <span className="form-element-error">{msg}</span>
+                <span className="form-element-error">{msg.prototype === String ? msg : msg.value}</span>
             </Show>
         )}
     />

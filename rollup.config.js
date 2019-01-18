@@ -1,8 +1,6 @@
 import autoprefixer from 'autoprefixer';
 import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
-import commonJS from 'rollup-plugin-commonjs'
-import resolve from 'rollup-plugin-node-resolve';
 
 import pkg from './package.json';
 
@@ -28,7 +26,6 @@ export default {
 		postcss({
 			plugins: [autoprefixer]
     }),
-    
 		babel({
 			exclude: 'node_modules/**',
 			externalHelpers: true

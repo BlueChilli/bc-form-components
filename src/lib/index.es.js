@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import posed, { PoseGroup } from 'react-pose';
-import { connect, ErrorMessage, getIn } from 'formik';
+import { connect, ErrorMessage, getIn, Field } from 'formik';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import dayPickerMomentHelpers from 'react-day-picker/moment';
 import propTypes from 'prop-types';
 import 'react-day-picker/lib/style.css';
+import Select from 'react-select';
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -219,8 +220,7 @@ var InputWrap = connect(function (_ref5) {
     cssClass: "form-element-input ".concat(errorClass),
     className: className
   }, children);
-}); //  {children}</div>
-
+});
 var ErrorContainer = function ErrorContainer(_ref6) {
   var className = _ref6.className,
       name = _ref6.name;
@@ -231,7 +231,7 @@ var ErrorContainer = function ErrorContainer(_ref6) {
         animateOnMount: true
       }, React.createElement("span", {
         className: "form-element-error"
-      }, msg));
+      }, msg.prototype === String ? msg : msg.value));
     }
   });
 };
@@ -289,7 +289,196 @@ DateInputField.propTypes = {
 };
 var DateInputField$1 = connect(DateInputField);
 
+function TextareaField(_ref) {
+  var label = _ref.label,
+      name = _ref.name,
+      _ref$helperText = _ref.helperText,
+      helperText = _ref$helperText === void 0 ? "" : _ref$helperText,
+      _ref$className = _ref.className,
+      className = _ref$className === void 0 ? "" : _ref$className,
+      _ref$placeholder = _ref.placeholder,
+      placeholder = _ref$placeholder === void 0 ? "" : _ref$placeholder,
+      formik = _ref.formik;
+  var setFieldValue = formik.setFieldValue,
+      setFieldTouched = formik.setFieldTouched;
+  var value = formik.values[name];
+  return React.createElement(ElementWrap, {
+    className: className
+  }, React.createElement(LabelWrap, {
+    name: name
+  }, React.createElement("label", {
+    htmlFor: name
+  }, label || name), React.createElement(HelperText, {
+    text: helperText
+  })), React.createElement(InputWrap, {
+    name: name
+  }, React.createElement("textarea", {
+    name: name,
+    value: value,
+    onBlur: function onBlur() {
+      return setFieldTouched(name, true);
+    },
+    onChange: function onChange(e) {
+      return setFieldValue(name, e.target.value);
+    },
+    placeholder: placeholder
+  })), React.createElement(ErrorContainer, {
+    name: name
+  }));
+}
+
+var TextareaField$1 = connect(TextareaField);
+
+var TextField = function TextField(props) {
+  var label = props.label,
+      name = props.name,
+      value = props.value,
+      _props$helperText = props.helperText,
+      helperText = _props$helperText === void 0 ? "" : _props$helperText,
+      _props$className = props.className,
+      className = _props$className === void 0 ? "" : _props$className,
+      rest = _objectWithoutProperties(props, ["label", "name", "value", "helperText", "className"]);
+
+  return React.createElement(ElementWrap, {
+    className: className,
+    name: name
+  }, label && React.createElement(LabelWrap, {
+    name: name
+  }, React.createElement("label", {
+    htmlFor: name
+  }, label), React.createElement(HelperText, {
+    text: helperText
+  })), React.createElement(InputWrap, {
+    name: name
+  }, React.createElement(Field, _extends({
+    id: name,
+    name: name,
+    defaultValue: value,
+    autoComplete: "nope"
+  }, rest))), React.createElement(ErrorContainer, {
+    name: name
+  }));
+};
+
+/**
+```js
+import React from "react";
+import Select from "react-select";
+import {
+    ElementWrap,
+    LabelWrap,
+    HelperText,
+    ErrorContainer,
+    InputWrap
+} from "../../Scaffolding/Scaffolding";
+
+export default function SelectField({
+    label,
+    name,
+    helperText = "",
+    className = "",
+    placeholder = "Select...",
+    options = [],
+    ...rest
+}) {
+    const { setFieldTouched, setFieldValue } = rest;
+    const value = rest.values[name];
+
+    return (
+        <ElementWrap className={className}>
+            <LabelWrap name={name}>
+                <label htmlFor={name}>{label || name}</label>
+                <HelperText text={helperText} />
+            </LabelWrap>
+            <InputWrap name={name}>
+                <Select
+                    autoBlur
+                    className={`${className} select-container`}
+                    classNamePrefix={`${className} select`}
+                    labelKey="name"
+                    placeholder={placeholder}
+                    name={name}
+                    onBlur={() => setFieldTouched(name, true)}
+                    onChange={value => setFieldValue(name, value)}
+                    options={options}
+                    value={value}
+                />
+            </InputWrap>
+            <ErrorContainer name={name} />
+        </ElementWrap>
+    );
+}
+```
+ */
+
+function SelectField(_ref) {
+  var label = _ref.label,
+      name = _ref.name,
+      _ref$helperText = _ref.helperText,
+      helperText = _ref$helperText === void 0 ? "" : _ref$helperText,
+      _ref$className = _ref.className,
+      className = _ref$className === void 0 ? "" : _ref$className,
+      _ref$placeholder = _ref.placeholder,
+      placeholder = _ref$placeholder === void 0 ? "Select..." : _ref$placeholder,
+      _ref$options = _ref.options,
+      options = _ref$options === void 0 ? [] : _ref$options,
+      formik = _ref.formik;
+  var setFieldTouched = formik.setFieldTouched,
+      setFieldValue = formik.setFieldValue;
+  var value = formik.values[name];
+  return React.createElement(ElementWrap, {
+    className: className
+  }, React.createElement(LabelWrap, {
+    name: name
+  }, React.createElement("label", {
+    htmlFor: name
+  }, label || name), React.createElement(HelperText, {
+    text: helperText
+  })), React.createElement(InputWrap, {
+    name: name
+  }, React.createElement(Select, {
+    autoBlur: true,
+    className: "".concat(className, " select-container"),
+    classNamePrefix: "".concat(className, " select"),
+    labelKey: "name",
+    placeholder: placeholder,
+    name: name,
+    onBlur: function onBlur() {
+      return setFieldTouched(name, true);
+    },
+    onChange: function onChange(value) {
+      return setFieldValue(name, value);
+    },
+    options: options,
+    value: value
+  })), React.createElement(ErrorContainer, {
+    name: name
+  }));
+}
+
+var SelectField$1 = connect(SelectField);
+
+function FormError(props) {
+  var _props$className = props.className,
+      className = _props$className === void 0 ? "" : _props$className;
+  var _props$formik = props.formik,
+      status = _props$formik.status,
+      dirty = _props$formik.dirty,
+      values = _props$formik.values,
+      setStatus = _props$formik.setStatus;
+  useEffect(function () {
+    setStatus(false);
+  }, [values]);
+  return React.createElement(ElementWrap, null, React.createElement(Show, {
+    show: dirty && status
+  }, React.createElement("div", {
+    className: "form-element-error " + className
+  }, status)));
+}
+
+var FormError$1 = connect(FormError);
+
 // import DateInputField from "../components/DateInputField/DateInputField";
 
-export default DateInputField$1;
+export { DateInputField$1 as DateInputField, TextareaField$1 as TextareaField, TextField, SelectField$1 as SelectField, FormError$1 as FormError };
 //# sourceMappingURL=index.es.js.map
