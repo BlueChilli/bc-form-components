@@ -14,7 +14,7 @@ import {
 
 import "react-day-picker/lib/style.css";
 
-function DateInputFieldRaw({
+function DateInputField({
   label,
   name,
   helperText = "",
@@ -54,7 +54,7 @@ function DateInputFieldRaw({
   );
 }
 
-DateInputFieldRaw.propTypes = {
+DateInputField.propTypes = {
   /** Will populate the label field */
   label: propTypes.string,
   className: propTypes.string,
@@ -66,4 +66,4 @@ DateInputFieldRaw.propTypes = {
   formik: propTypes.object,
 };
 
-export const DateInputField = connect(DateInputFieldRaw);
+export default connect(DateInputField);

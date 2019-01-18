@@ -236,7 +236,7 @@ var ErrorContainer = function ErrorContainer(_ref6) {
   });
 };
 
-function DateInputFieldRaw(_ref) {
+function DateInputField(_ref) {
   var label = _ref.label,
       name = _ref.name,
       _ref$helperText = _ref.helperText,
@@ -285,7 +285,7 @@ function DateInputFieldRaw(_ref) {
   }));
 }
 
-DateInputFieldRaw.propTypes = {
+DateInputField.propTypes = {
   /** Will populate the label field */
   label: propTypes.string,
   className: propTypes.string,
@@ -296,47 +296,9 @@ DateInputFieldRaw.propTypes = {
   setFieldValue: propTypes.func,
   formik: propTypes.object
 };
-var DateInputField = connect(DateInputFieldRaw);
+var DateInputField$1 = connect(DateInputField);
 
-function TextareaField(_ref) {
-  var label = _ref.label,
-      name = _ref.name,
-      _ref$helperText = _ref.helperText,
-      helperText = _ref$helperText === void 0 ? "" : _ref$helperText,
-      _ref$className = _ref.className,
-      className = _ref$className === void 0 ? "" : _ref$className,
-      _ref$placeholder = _ref.placeholder,
-      placeholder = _ref$placeholder === void 0 ? "" : _ref$placeholder,
-      formik = _ref.formik;
-  var setFieldValue = formik.setFieldValue,
-      setFieldTouched = formik.setFieldTouched;
-  var value = formik.values[name];
-  return React.createElement(ElementWrap, {
-    className: className
-  }, React.createElement(LabelWrap, {
-    name: name
-  }, React.createElement("label", {
-    htmlFor: name
-  }, label || name), React.createElement(HelperText, {
-    text: helperText
-  })), React.createElement(InputWrap, {
-    name: name
-  }, React.createElement("textarea", {
-    name: name,
-    value: value,
-    onBlur: function onBlur() {
-      return setFieldTouched(name, true);
-    },
-    onChange: function onChange(e) {
-      return setFieldValue(name, e.target.value);
-    },
-    placeholder: placeholder
-  })), React.createElement(ErrorContainer, {
-    name: name
-  }));
-}
+// import DateInputField from "../components/DateInputField/DateInputField";
 
-connect(TextareaField);
-
-export { DateInputField };
+export default DateInputField$1;
 //# sourceMappingURL=index.es.js.map
