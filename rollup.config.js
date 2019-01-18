@@ -25,6 +25,10 @@ export default {
 	],
 	external: ['react', 'prop-types'],
 	plugins: [
+    resolve(),
+    commonJS({
+      include: 'node_modules/**'
+    }),
 		postcss({
 			plugins: [autoprefixer]
     }),
