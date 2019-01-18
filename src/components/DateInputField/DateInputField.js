@@ -58,4 +58,4 @@ DateInputField.propTypes = {
   formik: propTypes.object,
 };
 
-export default DateInputField;
+export default connect(DateInputField);

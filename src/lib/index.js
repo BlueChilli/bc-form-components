@@ -16472,8 +16472,9 @@ DateInputField.propTypes = {
   setFieldValue: propTypes.func,
   formik: propTypes.object
 };
+var DateInputField$1 = connect(DateInputField);
 
 // import DateInputField from "../components/DateInputField/DateInputField";
 
-export default DateInputField;
+export default DateInputField$1;
 //# sourceMappingURL=index.js.map
