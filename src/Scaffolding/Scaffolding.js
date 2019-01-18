@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, ErrorMessage, getIn } from "formik";
-import Show from "../Show/Show.jsx";
+import Show from "../Show/Show";
 import "./Scaffolding.scss";
 
 const DivWithCSSClass = ({ cssClass, className = "", children }) => {
