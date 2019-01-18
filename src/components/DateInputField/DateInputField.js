@@ -20,17 +20,9 @@ function DateInputField({
   helperText = "",
   className = "",
   placeholder = "",
-  value,
   formik
 }) {
   const {setFieldTouched, setFieldValue, values} = formik;
-  let fieldValue;
-
-  if (value) {
-    fieldValue = value;
-  } else {
-    fieldValue = values[name];
-  }
 
   return (
     <ElementWrap className={className}>
@@ -44,7 +36,7 @@ function DateInputField({
           parseDate={dayPickerMomentHelpers.parseDate}
           onDayChange={value => setFieldValue(name, value)}
           onDayPickerHide={() => setFieldTouched(name, true)}
-          value={fieldValue}
+          value={values[name]}
           name={name}
           placeholder={placeholder}
         />

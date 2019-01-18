@@ -245,19 +245,10 @@ function DateInputField(_ref) {
       className = _ref$className === void 0 ? "" : _ref$className,
       _ref$placeholder = _ref.placeholder,
       placeholder = _ref$placeholder === void 0 ? "" : _ref$placeholder,
-      value = _ref.value,
       formik = _ref.formik;
   var setFieldTouched = formik.setFieldTouched,
       setFieldValue = formik.setFieldValue,
       values = formik.values;
-  var fieldValue;
-
-  if (value) {
-    fieldValue = value;
-  } else {
-    fieldValue = values[name];
-  }
-
   return React.createElement(ElementWrap, {
     className: className
   }, React.createElement(LabelWrap, {
@@ -277,7 +268,7 @@ function DateInputField(_ref) {
     onDayPickerHide: function onDayPickerHide() {
       return setFieldTouched(name, true);
     },
-    value: fieldValue,
+    value: values[name],
     name: name,
     placeholder: placeholder
   })), React.createElement(ErrorContainer, {
