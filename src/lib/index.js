@@ -16438,6 +16438,7 @@ function DateInputField(_ref) {
       _ref$placeholder = _ref.placeholder,
       placeholder = _ref$placeholder === void 0 ? "" : _ref$placeholder,
       formik = _ref.formik;
+  console.log("harry wins");
   var setFieldTouched = formik.setFieldTouched,
       setFieldValue = formik.setFieldValue;
   var value = getIn(formik.values, name);

@@ -22,6 +22,7 @@ function DateInputField({
   placeholder = "",
   formik
 }) {
+  console.log("harry wins");
   const {setFieldTouched, setFieldValue} = formik;
   const value = getIn(formik.values, name);
 

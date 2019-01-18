@@ -6,7 +6,7 @@
 Yup.date().required("__enter error message to be displayed__"),
 ```
 
-## Simple example
+## Simple example with formik
 
 ```jsx
 const FormikExampleWrapper  = require("../FormikExampleWrapper/FormikExampleWrapper").default;
