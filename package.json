@@ -2,7 +2,7 @@
     "name": "styleguidist-formiks-hooks",
     "main": "src/lib/index.js",
     "module": "src/lib/index.es.js",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "private": true,
     "dependencies": {
         "formik": "^1.4.2",
