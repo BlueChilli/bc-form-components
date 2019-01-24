@@ -478,7 +478,31 @@ function FormError(props) {
 
 var FormError$1 = connect(FormError);
 
+function SubmitButton(props) {
+  var name = props.name,
+      _props$className = props.className,
+      className = _props$className === void 0 ? "" : _props$className,
+      _props$value = props.value,
+      value = _props$value === void 0 ? "Submit" : _props$value,
+      _props$submittingValu = props.submittingValue,
+      submittingValue = _props$submittingValu === void 0 ? "Submitting" : _props$submittingValu;
+  var _props$formik = props.formik,
+      isSubmitting = _props$formik.isSubmitting,
+      isValid = _props$formik.isValid;
+  return React.createElement(ElementWrap, {
+    name: name
+  }, React.createElement(InputWrap, {
+    name: name
+  }, React.createElement("button", {
+    className: className,
+    disabled: isSubmitting || !isValid,
+    type: "submit"
+  }, !isSubmitting ? value : submittingValue)));
+}
+
+var SubmitButton$1 = connect(SubmitButton);
+
 // import DateInputField from "../components/DateInputField/DateInputField";
 
-export { DateInputField$1 as DateInputField, TextareaField$1 as TextareaField, TextField, SelectField$1 as SelectField, FormError$1 as FormError };
+export { DateInputField$1 as DateInputField, TextareaField$1 as TextareaField, TextField, SelectField$1 as SelectField, FormError$1 as FormError, SubmitButton$1 as SubmitButton };
 //# sourceMappingURL=index.es.js.map

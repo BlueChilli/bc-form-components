@@ -486,6 +486,30 @@ function FormError(props) {
 
 var FormError$1 = formik.connect(FormError);
 
+function SubmitButton(props) {
+  var name = props.name,
+      _props$className = props.className,
+      className = _props$className === void 0 ? "" : _props$className,
+      _props$value = props.value,
+      value = _props$value === void 0 ? "Submit" : _props$value,
+      _props$submittingValu = props.submittingValue,
+      submittingValue = _props$submittingValu === void 0 ? "Submitting" : _props$submittingValu;
+  var _props$formik = props.formik,
+      isSubmitting = _props$formik.isSubmitting,
+      isValid = _props$formik.isValid;
+  return React__default.createElement(ElementWrap, {
+    name: name
+  }, React__default.createElement(InputWrap, {
+    name: name
+  }, React__default.createElement("button", {
+    className: className,
+    disabled: isSubmitting || !isValid,
+    type: "submit"
+  }, !isSubmitting ? value : submittingValue)));
+}
+
+var SubmitButton$1 = formik.connect(SubmitButton);
+
 // import DateInputField from "../components/DateInputField/DateInputField";
 
 exports.DateInputField = DateInputField$1;
@@ -493,4 +517,5 @@ exports.TextareaField = TextareaField$1;
 exports.TextField = TextField;
 exports.SelectField = SelectField$1;
 exports.FormError = FormError$1;
+exports.SubmitButton = SubmitButton$1;
 //# sourceMappingURL=index.js.map
