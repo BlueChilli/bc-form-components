@@ -7,3 +7,4 @@ export { default as TextareaField } from "../components/TextareaField/TextareaFi
 export { default as TextField } from "../components/TextField/TextField";
 export { default as SelectField } from "../components/SelectField/SelectField";
 export { default as FormError } from "../components/FormError/FormError";
+export { default as SubmitButton } from "../components/SubmitButton/SubmitButton";
