@@ -3,11 +3,11 @@ import Select from "react-select";
 import { connect } from "formik";
 
 import {
-    ElementWrap,
-    LabelWrap,
-    HelperText,
-    ErrorContainer,
-    InputWrap
+  ElementWrap,
+  LabelWrap,
+  HelperText,
+  ErrorContainer,
+  InputWrap
 } from "../../Scaffolding/Scaffolding";
 
 /**
@@ -62,40 +62,40 @@ export default function SelectField({
  */
 
 function SelectField({
-    label,
-    name,
-    helperText = "",
-    className = "",
-    placeholder = "Select...",
-    options = [],
-    formik
+  label,
+  name,
+  helperText = "",
+  className = "",
+  placeholder = "Select...",
+  options = [],
+  formik
 }) {
-    const { setFieldTouched, setFieldValue } = formik;
-    const value = formik.values[name];
+  const { setFieldTouched, setFieldValue } = formik;
+  const value = formik.values[name];
 
-    return (
-        <ElementWrap className={className}>
-            <LabelWrap name={name}>
-                <label htmlFor={name}>{label || name}</label>
-                <HelperText text={helperText} />
-            </LabelWrap>
-            <InputWrap name={name}>
-                <Select
-                    autoBlur
-                    className={`${className} select-container`}
-                    classNamePrefix={`${className} select`}
-                    labelKey="name"
-                    placeholder={placeholder}
-                    name={name}
-                    onBlur={() => setFieldTouched(name, true)}
-                    onChange={value => setFieldValue(name, value)}
-                    options={options}
-                    value={value}
-                />
-            </InputWrap>
-            <ErrorContainer name={name} />
-        </ElementWrap>
-    );
+  return (
+    <ElementWrap className={className}>
+      <LabelWrap name={name} label={label}>
+        <label htmlFor={name}>{label || name}</label>
+        <HelperText text={helperText} />
+      </LabelWrap>
+      <InputWrap name={name}>
+        <Select
+          autoBlur
+          className={`${className} select-container`}
+          classNamePrefix={`${className} select`}
+          labelKey="name"
+          placeholder={placeholder}
+          name={name}
+          onBlur={() => setFieldTouched(name, true)}
+          onChange={value => setFieldValue(name, value)}
+          options={options}
+          value={value}
+        />
+      </InputWrap>
+      <ErrorContainer name={name} />
+    </ElementWrap>
+  );
 }
 
 export default connect(SelectField);

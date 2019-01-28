@@ -9,21 +9,21 @@ const FormikExampleWrapper = ({
   children
 }) => {
   return (
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={values => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-          }, 500);
-        }}
-        render={() => (
-          <Form>
-            {children}
-            <Debug />
-          </Form>
-        )}
-      />
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={values => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2));
+        }, 500);
+      }}
+      render={() => (
+        <Form>
+          {children}
+          <Debug />
+        </Form>
+      )}
+    />
   );
 };
 

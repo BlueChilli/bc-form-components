@@ -14,7 +14,7 @@ function SubmitButton(props) {
   const { isSubmitting, isValid } = props.formik;
 
   return (
-    <ElementWrap name={name}>
+    <ElementWrap className={className} name={name}>
       <InputWrap name={name}>
         <button
           className={className}

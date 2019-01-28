@@ -5,7 +5,6 @@ import Show from "../../Show/Show";
 
 function FormError(props) {
   const { className = "" } = props;
-
   const { status, dirty, values, setStatus } = props.formik;
 
   useEffect(
@@ -16,7 +15,7 @@ function FormError(props) {
   );
 
   return (
-    <ElementWrap>
+    <ElementWrap className={className} name="submit-button">
       <Show show={dirty && status}>
         <div className={"form-element-error " + className}>{status}</div>
       </Show>

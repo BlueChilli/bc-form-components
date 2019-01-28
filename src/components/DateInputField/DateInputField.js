@@ -22,15 +22,17 @@ function DateInputField({
   placeholder = "",
   formik
 }) {
-  const {setFieldTouched, setFieldValue} = formik;
+  const { setFieldTouched, setFieldValue } = formik;
   const value = getIn(formik.values, name);
 
   return (
     <ElementWrap className={className}>
-      <LabelWrap name={name}>
-        <label htmlFor={name}>{label || name}</label>
-        <HelperText text={helperText} />
-      </LabelWrap>
+      {label && (
+        <LabelWrap name={name} label={label}>
+          <label htmlFor={name}>{label || name}</label>
+          <HelperText text={helperText} />
+        </LabelWrap>
+      )}
       <InputWrap name={name}>
         <DayPickerInput
           formatDate={dayPickerMomentHelpers.formatDate}
@@ -52,11 +54,8 @@ DateInputField.propTypes = {
   label: propTypes.string,
   className: propTypes.string,
   name: propTypes.string.isRequired,
-  helperText: propTypes.string.isRequired,
-  setFieldTouched: propTypes.func,
-  placeholder: propTypes.string,
-  setFieldValue: propTypes.func,
-  formik: propTypes.object,
+  helperText: propTypes.string,
+  placeholder: propTypes.string
 };
 
 export default connect(DateInputField);

@@ -13,10 +13,15 @@ export const ElementWrap = ({ className = "", children }) => (
     </DivWithCSSClass>
 );
 
-export const LabelWrap = ({ className = "", children }) => (
-    <DivWithCSSClass cssClass="form-element-label" className={className}>
-        {children}
-    </DivWithCSSClass>
+export const LabelWrap = connect(
+    ({ className = "", children, label = undefined }) => {
+        if (label === undefined) return null;
+        return (
+            <DivWithCSSClass cssClass="form-element-label" className={className}>
+                {children}
+            </DivWithCSSClass>
+        );
+    }
 );
 
 export const HelperText = ({ text, className = "" }) => (
@@ -25,25 +30,32 @@ export const HelperText = ({ text, className = "" }) => (
     </DivWithCSSClass>
 );
 
-export const InputWrap = connect(({ className = "", name = "", children, formik }) => {
-    const error = getIn(formik.errors, name);
-    const touched = getIn(formik.touched, name);
+export const InputWrap = connect(
+    ({ className = "", name = "", children, formik }) => {
+        const error = getIn(formik.errors, name);
+        const touched = getIn(formik.touched, name);
 
-    const errorClass = error && touched ? "error" : "";
+        const errorClass = error && touched ? "error" : "";
 
-    return (
-        <DivWithCSSClass cssClass={`form-element-input ${errorClass}`} className={className}>
-            {children}
-        </DivWithCSSClass>
-    );
-});
+        return (
+            <DivWithCSSClass
+                cssClass={`form-element-input ${errorClass}`}
+                className={className}
+            >
+                {children}
+            </DivWithCSSClass>
+        );
+    }
+);
 
 export const ErrorContainer = ({ className, name }) => (
     <ErrorMessage
         name={name}
         render={msg => (
             <Show animateOnMount={true}>
-                <span className="form-element-error">{msg.prototype === String ? msg : msg.value}</span>
+        <span className="form-element-error">
+          {msg.prototype === String ? msg : msg.value}
+        </span>
             </Show>
         )}
     />

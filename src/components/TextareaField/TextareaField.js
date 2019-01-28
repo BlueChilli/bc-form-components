@@ -22,7 +22,7 @@ function TextareaField({
 
   return (
     <ElementWrap className={className}>
-      <LabelWrap name={name}>
+      <LabelWrap name={name} label={label}>
         <label htmlFor={name}>{label || name}</label>
         <HelperText text={helperText} />
       </LabelWrap>
