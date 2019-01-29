@@ -9,7 +9,6 @@ const FormikExampleWrapper  = require("../FormikExampleWrapper/FormikExampleWrap
     initialValues={{ test: "" }}
   >
   <SubmitButton
-    className="btn btn-primary"
     value="Log In"
     submittingValue="Logging In .."
   />
