@@ -188,15 +188,18 @@ var ElementWrap = function ElementWrap(_ref2) {
     className: className
   }, children);
 };
-var LabelWrap = function LabelWrap(_ref3) {
+var LabelWrap = connect(function (_ref3) {
   var _ref3$className = _ref3.className,
       className = _ref3$className === void 0 ? "" : _ref3$className,
-      children = _ref3.children;
+      children = _ref3.children,
+      _ref3$label = _ref3.label,
+      label = _ref3$label === void 0 ? undefined : _ref3$label;
+  if (label === undefined) return null;
   return React.createElement(DivWithCSSClass, {
     cssClass: "form-element-label",
     className: className
   }, children);
-};
+});
 var HelperText = function HelperText(_ref4) {
   var text = _ref4.text,
       _ref4$className = _ref4.className,
@@ -251,8 +254,9 @@ function DateInputField(_ref) {
   var value = getIn(formik.values, name);
   return React.createElement(ElementWrap, {
     className: className
-  }, React.createElement(LabelWrap, {
-    name: name
+  }, label && React.createElement(LabelWrap, {
+    name: name,
+    label: label
   }, React.createElement("label", {
     htmlFor: name
   }, label || name), React.createElement(HelperText, {
@@ -281,11 +285,8 @@ DateInputField.propTypes = {
   label: propTypes.string,
   className: propTypes.string,
   name: propTypes.string.isRequired,
-  helperText: propTypes.string.isRequired,
-  setFieldTouched: propTypes.func,
-  placeholder: propTypes.string,
-  setFieldValue: propTypes.func,
-  formik: propTypes.object
+  helperText: propTypes.string,
+  placeholder: propTypes.string
 };
 var DateInputField$1 = connect(DateInputField);
 
@@ -305,7 +306,8 @@ function TextareaField(_ref) {
   return React.createElement(ElementWrap, {
     className: className
   }, React.createElement(LabelWrap, {
-    name: name
+    name: name,
+    label: label
   }, React.createElement("label", {
     htmlFor: name
   }, label || name), React.createElement(HelperText, {
@@ -332,18 +334,18 @@ var TextareaField$1 = connect(TextareaField);
 var TextField = function TextField(props) {
   var label = props.label,
       name = props.name,
-      value = props.value,
       _props$helperText = props.helperText,
       helperText = _props$helperText === void 0 ? "" : _props$helperText,
       _props$className = props.className,
       className = _props$className === void 0 ? "" : _props$className,
-      rest = _objectWithoutProperties(props, ["label", "name", "value", "helperText", "className"]);
+      rest = _objectWithoutProperties(props, ["label", "name", "helperText", "className"]);
 
   return React.createElement(ElementWrap, {
     className: className,
     name: name
-  }, label && React.createElement(LabelWrap, {
-    name: name
+  }, React.createElement(LabelWrap, {
+    name: name,
+    label: label
   }, React.createElement("label", {
     htmlFor: name
   }, label), React.createElement(HelperText, {
@@ -353,12 +355,13 @@ var TextField = function TextField(props) {
   }, React.createElement(Field, _extends({
     id: name,
     name: name,
-    defaultValue: value,
     autoComplete: "nope"
   }, rest))), React.createElement(ErrorContainer, {
     name: name
   }));
 };
+
+var TextField$1 = connect(TextField);
 
 /**
 ```js
@@ -429,7 +432,8 @@ function SelectField(_ref) {
   return React.createElement(ElementWrap, {
     className: className
   }, React.createElement(LabelWrap, {
-    name: name
+    name: name,
+    label: label
   }, React.createElement("label", {
     htmlFor: name
   }, label || name), React.createElement(HelperText, {
@@ -458,6 +462,36 @@ function SelectField(_ref) {
 
 var SelectField$1 = connect(SelectField);
 
+function CheckboxField(props) {
+  var label = props.label,
+      name = props.name,
+      _props$helperText = props.helperText,
+      helperText = _props$helperText === void 0 ? "" : _props$helperText,
+      _props$className = props.className,
+      className = _props$className === void 0 ? "" : _props$className;
+  return React.createElement(ElementWrap, {
+    className: className,
+    name: name
+  }, React.createElement(InputWrap, {
+    name: name
+  }, React.createElement(Field, {
+    className: "checkbox ".concat(className),
+    name: name,
+    id: name,
+    type: "checkbox"
+  })), React.createElement(LabelWrap, {
+    name: name,
+    label: label
+  }, React.createElement("label", {
+    className: "form-element-label ".concat(className),
+    htmlFor: name
+  }, label || name), React.createElement(HelperText, {
+    text: helperText
+  })), React.createElement(ErrorContainer, {
+    name: name
+  }));
+}
+
 function FormError(props) {
   var _props$className = props.className,
       className = _props$className === void 0 ? "" : _props$className;
@@ -469,7 +503,10 @@ function FormError(props) {
   useEffect(function () {
     setStatus(false);
   }, [values]);
-  return React.createElement(ElementWrap, null, React.createElement(Show, {
+  return React.createElement(ElementWrap, {
+    className: className,
+    name: "submit-button"
+  }, React.createElement(Show, {
     show: dirty && status
   }, React.createElement("div", {
     className: "form-element-error " + className
@@ -478,31 +515,5 @@ function FormError(props) {
 
 var FormError$1 = connect(FormError);
 
-function SubmitButton(props) {
-  var name = props.name,
-      _props$className = props.className,
-      className = _props$className === void 0 ? "" : _props$className,
-      _props$value = props.value,
-      value = _props$value === void 0 ? "Submit" : _props$value,
-      _props$submittingValu = props.submittingValue,
-      submittingValue = _props$submittingValu === void 0 ? "Submitting" : _props$submittingValu;
-  var _props$formik = props.formik,
-      isSubmitting = _props$formik.isSubmitting,
-      isValid = _props$formik.isValid;
-  return React.createElement(ElementWrap, {
-    name: name
-  }, React.createElement(InputWrap, {
-    name: name
-  }, React.createElement("button", {
-    className: className,
-    disabled: isSubmitting || !isValid,
-    type: "submit"
-  }, !isSubmitting ? value : submittingValue)));
-}
-
-var SubmitButton$1 = connect(SubmitButton);
-
-// import DateInputField from "../components/DateInputField/DateInputField";
-
-export { DateInputField$1 as DateInputField, TextareaField$1 as TextareaField, TextField, SelectField$1 as SelectField, FormError$1 as FormError, SubmitButton$1 as SubmitButton };
+export { DateInputField$1 as DateInputField, TextareaField$1 as TextareaField, TextField$1 as TextField, SelectField$1 as SelectField, CheckboxField, FormError$1 as FormError };
 //# sourceMappingURL=index.es.js.map

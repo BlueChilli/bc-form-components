@@ -196,15 +196,18 @@ var ElementWrap = function ElementWrap(_ref2) {
     className: className
   }, children);
 };
-var LabelWrap = function LabelWrap(_ref3) {
+var LabelWrap = formik.connect(function (_ref3) {
   var _ref3$className = _ref3.className,
       className = _ref3$className === void 0 ? "" : _ref3$className,
-      children = _ref3.children;
+      children = _ref3.children,
+      _ref3$label = _ref3.label,
+      label = _ref3$label === void 0 ? undefined : _ref3$label;
+  if (label === undefined) return null;
   return React__default.createElement(DivWithCSSClass, {
     cssClass: "form-element-label",
     className: className
   }, children);
-};
+});
 var HelperText = function HelperText(_ref4) {
   var text = _ref4.text,
       _ref4$className = _ref4.className,
@@ -259,8 +262,9 @@ function DateInputField(_ref) {
   var value = formik.getIn(formik$$1.values, name);
   return React__default.createElement(ElementWrap, {
     className: className
-  }, React__default.createElement(LabelWrap, {
-    name: name
+  }, label && React__default.createElement(LabelWrap, {
+    name: name,
+    label: label
   }, React__default.createElement("label", {
     htmlFor: name
   }, label || name), React__default.createElement(HelperText, {
@@ -289,11 +293,8 @@ DateInputField.propTypes = {
   label: propTypes.string,
   className: propTypes.string,
   name: propTypes.string.isRequired,
-  helperText: propTypes.string.isRequired,
-  setFieldTouched: propTypes.func,
-  placeholder: propTypes.string,
-  setFieldValue: propTypes.func,
-  formik: propTypes.object
+  helperText: propTypes.string,
+  placeholder: propTypes.string
 };
 var DateInputField$1 = formik.connect(DateInputField);
 
@@ -313,7 +314,8 @@ function TextareaField(_ref) {
   return React__default.createElement(ElementWrap, {
     className: className
   }, React__default.createElement(LabelWrap, {
-    name: name
+    name: name,
+    label: label
   }, React__default.createElement("label", {
     htmlFor: name
   }, label || name), React__default.createElement(HelperText, {
@@ -340,18 +342,18 @@ var TextareaField$1 = formik.connect(TextareaField);
 var TextField = function TextField(props) {
   var label = props.label,
       name = props.name,
-      value = props.value,
       _props$helperText = props.helperText,
       helperText = _props$helperText === void 0 ? "" : _props$helperText,
       _props$className = props.className,
       className = _props$className === void 0 ? "" : _props$className,
-      rest = _objectWithoutProperties(props, ["label", "name", "value", "helperText", "className"]);
+      rest = _objectWithoutProperties(props, ["label", "name", "helperText", "className"]);
 
   return React__default.createElement(ElementWrap, {
     className: className,
     name: name
-  }, label && React__default.createElement(LabelWrap, {
-    name: name
+  }, React__default.createElement(LabelWrap, {
+    name: name,
+    label: label
   }, React__default.createElement("label", {
     htmlFor: name
   }, label), React__default.createElement(HelperText, {
@@ -361,12 +363,13 @@ var TextField = function TextField(props) {
   }, React__default.createElement(formik.Field, _extends({
     id: name,
     name: name,
-    defaultValue: value,
     autoComplete: "nope"
   }, rest))), React__default.createElement(ErrorContainer, {
     name: name
   }));
 };
+
+var TextField$1 = formik.connect(TextField);
 
 /**
 ```js
@@ -437,7 +440,8 @@ function SelectField(_ref) {
   return React__default.createElement(ElementWrap, {
     className: className
   }, React__default.createElement(LabelWrap, {
-    name: name
+    name: name,
+    label: label
   }, React__default.createElement("label", {
     htmlFor: name
   }, label || name), React__default.createElement(HelperText, {
@@ -466,6 +470,36 @@ function SelectField(_ref) {
 
 var SelectField$1 = formik.connect(SelectField);
 
+function CheckboxField(props) {
+  var label = props.label,
+      name = props.name,
+      _props$helperText = props.helperText,
+      helperText = _props$helperText === void 0 ? "" : _props$helperText,
+      _props$className = props.className,
+      className = _props$className === void 0 ? "" : _props$className;
+  return React__default.createElement(ElementWrap, {
+    className: className,
+    name: name
+  }, React__default.createElement(InputWrap, {
+    name: name
+  }, React__default.createElement(formik.Field, {
+    className: "checkbox ".concat(className),
+    name: name,
+    id: name,
+    type: "checkbox"
+  })), React__default.createElement(LabelWrap, {
+    name: name,
+    label: label
+  }, React__default.createElement("label", {
+    className: "form-element-label ".concat(className),
+    htmlFor: name
+  }, label || name), React__default.createElement(HelperText, {
+    text: helperText
+  })), React__default.createElement(ErrorContainer, {
+    name: name
+  }));
+}
+
 function FormError(props) {
   var _props$className = props.className,
       className = _props$className === void 0 ? "" : _props$className;
@@ -477,7 +511,10 @@ function FormError(props) {
   React.useEffect(function () {
     setStatus(false);
   }, [values]);
-  return React__default.createElement(ElementWrap, null, React__default.createElement(Show, {
+  return React__default.createElement(ElementWrap, {
+    className: className,
+    name: "submit-button"
+  }, React__default.createElement(Show, {
     show: dirty && status
   }, React__default.createElement("div", {
     className: "form-element-error " + className
@@ -486,36 +523,10 @@ function FormError(props) {
 
 var FormError$1 = formik.connect(FormError);
 
-function SubmitButton(props) {
-  var name = props.name,
-      _props$className = props.className,
-      className = _props$className === void 0 ? "" : _props$className,
-      _props$value = props.value,
-      value = _props$value === void 0 ? "Submit" : _props$value,
-      _props$submittingValu = props.submittingValue,
-      submittingValue = _props$submittingValu === void 0 ? "Submitting" : _props$submittingValu;
-  var _props$formik = props.formik,
-      isSubmitting = _props$formik.isSubmitting,
-      isValid = _props$formik.isValid;
-  return React__default.createElement(ElementWrap, {
-    name: name
-  }, React__default.createElement(InputWrap, {
-    name: name
-  }, React__default.createElement("button", {
-    className: className,
-    disabled: isSubmitting || !isValid,
-    type: "submit"
-  }, !isSubmitting ? value : submittingValue)));
-}
-
-var SubmitButton$1 = formik.connect(SubmitButton);
-
-// import DateInputField from "../components/DateInputField/DateInputField";
-
 exports.DateInputField = DateInputField$1;
 exports.TextareaField = TextareaField$1;
-exports.TextField = TextField;
+exports.TextField = TextField$1;
 exports.SelectField = SelectField$1;
+exports.CheckboxField = CheckboxField;
 exports.FormError = FormError$1;
-exports.SubmitButton = SubmitButton$1;
 //# sourceMappingURL=index.js.map
