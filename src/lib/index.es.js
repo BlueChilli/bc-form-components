@@ -234,7 +234,7 @@ var ErrorContainer = function ErrorContainer(_ref6) {
         animateOnMount: true
       }, React.createElement("span", {
         className: "form-element-error"
-      }, msg.prototype === String ? msg : msg.value));
+      }, msg.length > 0 ? msg : msg.value));
     }
   });
 };

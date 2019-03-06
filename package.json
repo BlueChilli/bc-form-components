@@ -1,5 +1,5 @@
 {
-    "name": "bc-form-components",
+    "name": "chillisource.front.chilliforms",
     "main": "src/lib/index.js",
     "module": "src/lib/index.es.js",
     "description": "bluechilli form component library",
