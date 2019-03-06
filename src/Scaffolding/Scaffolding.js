@@ -54,7 +54,7 @@ export const ErrorContainer = ({ className, name }) => (
         render={msg => (
             <Show animateOnMount={true}>
         <span className="form-element-error">
-          {msg.prototype === String ? msg : msg.value}
+          {msg.length > 0 ? msg : msg.value}
         </span>
             </Show>
         )}
